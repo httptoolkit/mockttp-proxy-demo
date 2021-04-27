@@ -1,0 +1,15 @@
+{
+  "name": "mockttp-proxy-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Perry <tim@httptoolkit.tech>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "mockttp": "^1.2.2"
+  }
+}
