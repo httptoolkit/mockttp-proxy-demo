@@ -9,7 +9,15 @@
     await server.anyRequest().thenReply(200, "Hello world");
     await server.start();
 
-    // Print out the server details:
-    console.log(`Server running on port ${server.port}`);
-    console.log(`CA cert fingerprint ${mockttp.generateSPKIFingerprint(https.cert)}`);
+    const caFingerprint = mockttp.generateSPKIFingerprint(https.cert);
+
+    if (process.argv[2] === 'chrome') {
+        // Launch an intercepted Chrome using this proxy:
+        const launchChrome = require('./launch-chrome');
+        launchChrome("https://example.com", server, caFingerprint);
+    } else {
+        // Print out the server details for manual configuration:
+        console.log(`Server running on port ${server.port}`);
+        console.log(`CA cert fingerprint ${caFingerprint}`);
+    }
 })(); // (All run in an async wrapper, so we can easily use top-level await)
