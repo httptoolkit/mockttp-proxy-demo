@@ -10,7 +10,7 @@
   "author": "Tim Perry <tim@httptoolkit.tech>",
   "license": "Apache-2.0",
   "dependencies": {
-    "mockttp": "^1.2.2",
+    "mockttp": "^3.0.0",
     "open": "^8.0.6",
     "tmp-promise": "^3.0.2"
   }
