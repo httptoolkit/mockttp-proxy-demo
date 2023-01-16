@@ -6,7 +6,7 @@
     const server = mockttp.getLocal({ https });
 
     // Inject 'Hello world' responses for all requests
-    await server.forAnyRequest().thenReply(200, "Hello world");
+    await server.get("/admin/api").withQuery({ cashId: 9375 }).thenReply(200, "<code>YAY!</code>");;
     await server.start();
 
     const caFingerprint = mockttp.generateSPKIFingerprint(https.cert);
